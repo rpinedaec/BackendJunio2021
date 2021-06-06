@@ -1,3 +1,4 @@
+<!--HEADINGS-->
 # CORRALES ESTRADA CARLOS 
 MD.- Es un formato que nos permite crear archivos html y xml 
 con una sintaxis bastante clara y sencilla creada por Jhon gRUBER

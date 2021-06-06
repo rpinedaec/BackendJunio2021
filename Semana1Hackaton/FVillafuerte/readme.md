@@ -54,6 +54,6 @@ Además de esto, cualquier persona puede inscribirse y ser hospedar un repositor
 | Panel personal para rastrear elementos y solicitudes pull | Panel de análisis para planificar y supervisar proyectos |
 |
 
-*Huancayo, Junio 2021*
+*Huancayo, 05 de Junio 2021*
 
 

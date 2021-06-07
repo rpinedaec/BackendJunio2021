@@ -9,12 +9,12 @@ ___
 Establecer el nombre de usuario
 
 ```
-git config --global user.name "Roger Tomairo"
+git config --global user.name "nombre de usuario"
 ```
 Establecer el Correo Electrónico
 
 ```
-git config --global user.email royertomairo@gmail.com
+git config --global user.email correo_electronic@.com
 ```
 Para comprobar la configuración realizar el siguiente comando:
 
@@ -64,10 +64,10 @@ git clone "[url del repositorio]"
 
 Realiamos los pasos anteriores, luego de haber hecho un commit:
 
-Hacemos uso **Git Push** para enviar la confirmación
+Hacemos uso **Git Push** para enviar la confirmación de los cambios
 
 ```
-git clone "[url del repositorio]"
+git push
 ```
 
 # Uso de las Ramas

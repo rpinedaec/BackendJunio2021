@@ -69,3 +69,29 @@ Hacemos uso **Git Push** para enviar la confirmación
 ```
 git clone "[url del repositorio]"
 ```
+
+# Uso de las Ramas
+
+Permite obtener el codigo fuente del proyecto en una nueva carpeta para solucionar algun error que se presente, una ves el error ya solucionado este se debe incorporar al proyecto orinal estableciendo los cambios que se han realizado.
+
+Para crear una rama
+
+```
+git branch "nombre de la rama"
+```
+Para realizar los cambios realizados e integrandolo a la rama principal hacemos uso de **merge**
+
+```
+git merge master origin/nombre de la rama
+```
+
+Para movernos por las distintas ramas, hacemos uso del comando:
+
+```
+git checkout "nombre de la rama"
+```
+Para listar todas las ramas
+
+```
+git branch --a
+```

@@ -50,3 +50,22 @@ Realizamos el primer commit que va acompañado del mensaje:
 ```
 git commit -m "Insertar mensaje"
 ```
+
+# Uso del git Clone
+Hacemos uso de los servicios de github, y creamos un repositorio luego obtenemos el enlace.
+
+GitHub es una plataforma de desarrollo colaborativo para alojar proyecto mendiante el uso de sistema de control de versiones de Git
+
+Para clonar un repositorio hacemos uso del siguiente comando:
+
+```
+git clone "[url del repositorio]"
+```
+
+Realiamos los pasos anteriores, luego de haber hecho un commit:
+
+Hacemos uso **Git Push** para enviar la confirmación
+
+```
+git clone "[url del repositorio]"
+```

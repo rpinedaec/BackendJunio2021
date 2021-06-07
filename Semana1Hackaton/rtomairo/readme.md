@@ -95,3 +95,32 @@ Para listar todas las ramas
 ```
 git branch --a
 ```
+
+# Uso del Fork
+Permite obtener una copia del proyecto y poder realizarle cambios
+sin alterar al proyecto orignal.
+
+Para agregar un remoto, permite asociar el repositorio de otro
+```
+git remote add upstream [url ]
+```
+
+Permite traer los cambios de la rama remoto principal a la rama individual
+
+```
+git fecth upstream
+```
+
+Permite integrar cambios de la rama Principal a la rama individual 
+
+```
+git merge develop upstream/develop
+```
+
+Para mostrar los cambios del repositorio a la maquina realizar lo siguente
+
+```
+git pull
+```
+
+> Roger Tomairo Paniagua

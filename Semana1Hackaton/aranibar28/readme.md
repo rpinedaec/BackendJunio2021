@@ -7,15 +7,15 @@ My name is Gerson. I'm from Peru and I'm Bachelor of Systems Engineering at the 
 📫 How to reach me aranibargerson28@gmail.com
 
 ## Skills
-⭐Knowledge in web design, HTML5, CCS3, JavaScript, UTP 2020
-⭐Knowledge of programming languages in Java, PHP and C #, UTP 2020
-⭐Database Management - Basic in SQL / MYSQL, UTP 2020
+- Knowledge in web design, HTML5, CCS3, JavaScript, UTP 2020
+- Knowledge of programming languages in Java, PHP and C #, UTP 2020
+- Database Management - Basic in SQL / MYSQL, UTP 2020
 
 ## Certifications
-⭐Basic English, ICPNA 2021
-⭐Advanced Excel, IDAT 2021
-⭐Business Office, IDAT 2021
-⭐Cybersecurity Essentials, Cisco Networking Academy 2021
-⭐IT Essentials: PC Hardware and Software, CIBERTEC 2021
-⭐Specialization in Security and Protection of Networks, CIBERTEC 2021
-⭐CCNA Routing and Switching 1 & 2, UTP 2020
+- Basic English, ICPNA 2021
+- Advanced Excel, IDAT 2021
+- Business Office, IDAT 2021
+- Cybersecurity Essentials, Cisco Networking Academy 2021
+- IT Essentials: PC Hardware and Software, CIBERTEC 2021
+- Specialization in Security and Protection of Networks, CIBERTEC 2021
+- CCNA Routing and Switching 1 & 2, UTP 2020

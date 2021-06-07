@@ -1,1 +1,5 @@
 # José David Alcalde Cabrera
+## Archivos MD
+     Los archivos de extensión .md son aquellos que son creados con el lenguaje Markdown de allí las siglas "MD". Los archivos con la extensión MD fueron desarrollados por John Gruber.
+     Como los archivos .md son archivos de texto, se pueden abrir y modificar con un editor de texto. Se clasifican como archivos de desarrolladores en su mayoría utilizados por Markdown, una gran herramienta para la conversión de archivos de texto a versiones HTML para que los usuarios pueden crear archivos que son fáciles de leer y escribir. 
+    Este tipo de archivos pueden ser convertidos en HTML, pero a diferencia de éste, Markdown ofrece a los usuarios un sistema de marcado simple e intuitivo, para editar y marcar documentos. Los programas que pueden trabajar con los archivos md son por ejemplo: Windows, Linux, MAC OS, Daring Fireball Markdown, gVim, notepad, TextEdit, TextMate, GNU Emacs, Vim, Web, GitHub.

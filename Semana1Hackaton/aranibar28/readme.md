@@ -1,21 +1,19 @@
-## Hello 👋
+<img align='right' src='https://user-images.githubusercontent.com/5713670/87202985-820dcb80-c2b6-11ea-9f56-7ec461c497c3.gif' width='200'>
 
-My name is Gerson. I'm from Peru and I'm Bachelor of Systems Engineering at the UTP, self-taught and enthusiastic about technology. I lean towards areas in computer security and networks. As well as the dedication in the maintenance of computer equipment and web development.
+## Hi there! <a><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px"></a>
+Hi, I'm Gerson Aranibar, a passionate self-taught and constantly learning. I'm systems engineer at **Universidad Tecnológica del Perú** in Lima - Peru.  With interest in areas of cybersecurity and networking. As well as dedication in computer equipment maintenance and web development.
 
-- 👯 I’m looking to collaborate on https://github.com/aranibar28/
-- 🌱 I’m currently learning Git, Github, Python, Backend
-- 📫 How to reach me aranibargerson28@gmail.com
+<img src='https://github.com/aranibar28/aranibar28/blob/main/img/Monkey_Kid_Coding.gif' align='left'>
 
-## Skills
-- Knowledge in web design, HTML5, CCS3, JavaScript, UTP 2020
-- Knowledge of programming languages in Java, PHP and C #, UTP 2020
-- Database Management - Basic in SQL / MYSQL, UTP 2020
+### Skills
+- Web Design: HTML5, CCS3 & JavaScript.
+- Programming languages: Python, Java, PHP & C#.
+- Database Management in SQL/MySQL.
+- Microsoft Excel 2019 - Advanced.
+- CCNA Routing and Switching.
 
-## Certifications
-- Basic English, ICPNA 2021
-- Advanced Excel, IDAT 2021
-- Business Office, IDAT 2021
-- Cybersecurity Essentials, Cisco Networking Academy 2021
-- IT Essentials: PC Hardware and Software, CIBERTEC 2021
-- Specialization in Security and Protection of Networks, CIBERTEC 2021
-- CCNA Routing and Switching 1 & 2, UTP 2020
+### Hobbies
+- Play videogames and soccer.
+- Listen to electronic, pop, rock and urban music.  
+- Watch science fiction, action and suspense movies.
+- Driving a car.

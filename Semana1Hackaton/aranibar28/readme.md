@@ -9,7 +9,6 @@ Hi, I'm Gerson Aranibar, a passionate self-taught and constantly learning. I'm s
 - Web Design: HTML5, CCS3 & JavaScript.
 - Programming languages: Python, Java, PHP & C#.
 - Database Management in SQL/MySQL.
-- Microsoft Excel 2019 - Advanced.
 - CCNA Routing and Switching.
 
 ### Hobbies

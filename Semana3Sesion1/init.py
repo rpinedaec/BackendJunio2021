@@ -35,7 +35,7 @@ print(intValor2 % 2)
 
 resp = intValor1 < intValor2
 print(resp)
-# Boolean
+# Boolea
 boolVal1 = intValor1 > intValor2
 boolVal2 = False
 

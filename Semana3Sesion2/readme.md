@@ -17,16 +17,25 @@ Identifica el tipo de dato (int, float, string o list) de los siguientes valores
 Determina mentalmente (sin programar) el resultado que aparecerá por pantalla en las siguientes operaciones con variables:
 
 a = 10
+
 b = -5
+
 c = "Hola "
+
 d = [1, 2, 3] 
 
 print(a * 5)
+
 print(a - b)
+
 print(c + "Mundo")
+
 print(c * 2)
+
 print(d[-1])
+
 print(d[1:])
+
 print(d + d) 
 
 ## Ejercicio 3
@@ -38,6 +47,7 @@ numero_2 = 3
 numero_3 = 6
 
 media = numero_1 + numero_2 + numero_3 / 3
+
 print("La nota media es", media)  
 
 ## Ejercicio 4
@@ -51,7 +61,9 @@ A partir del ejercicio anterior, vamos a suponer que cada número es una nota, y
 Desarrolla un programa para calcular perfectamente la nota final:
 
 nota_1 = 10
+
 nota_2 = 7
+
 nota_3 = 4
 
 ## Ejercicio 5
@@ -62,7 +74,9 @@ Ayuda
 
 La función llamada  _sum(lista)_  devuelve una suma de todos los elementos de la lista ¡Pruébalo!
 
-matriz = [ 
+matriz =
+[ 
+
     [1, 1, 1, 3],
     [2, 2, 2, 7],
     [3, 3, 3, 9],
@@ -179,10 +193,13 @@ El objetivo del script es descomponer el número en unidades, decenas, centenas,
 
 El programa deberá devolver una descomposición línea a línea como la siguiente utilizando las técnicas de formateo:
 
-`0007
+0007
+
 0040
+
 0600
-3000` 
+
+3000
 
 Pista
 
@@ -206,9 +223,9 @@ Recordatorio
 
 El área de un círculo se obtiene al elevar el radio a dos y multiplicando el resultado por el número pi. Puedes utilizar el valor 3.14159 como pi o importarlo del módulo math:
 
-`import math
+`import math`
 
-print(math.pi)` 
+`print(math.pi) `
 
 `3.141592653589793` 
 
@@ -246,12 +263,15 @@ Realiza una función  **separar(lista)**  que tome una lista de números enteros
 
 Por ejemplo:
 
-`pares, impares = separar([6,5,2,1,7])
-print(pares)
-print(impares)` 
+`pares, impares = separar([6,5,2,1,7])`
 
-`[2, 6]
-[1, 5, 7]` 
+`print(pares)`
+
+`print(impares)` 
+
+`[2, 6]`
+
+`[1, 5, 7]` 
 
 Sugerencia
 
@@ -267,10 +287,10 @@ Utilizando todo lo que sabes sobre cadenas, listas, sus métodos internos... Tra
 
 En este otro:
 
-`Un día que el viento soplaba con fuerza...
+Un día que el viento soplaba con fuerza...
 - Mira como se mueve aquella banderola -dijo un monje.
 - Lo que se mueve es el viento -respondió otro monje.
-- Ni las banderolas ni el viento, lo que se mueve son vuestras mentes -dijo el maestro.` 
+- Ni las banderolas ni el viento, lo que se mueve son vuestras mentes -dijo el maestro.
 
 **Lo único prohibido es modificar directamente el texto.**
 
@@ -286,8 +306,9 @@ Crea una función modificar() que a partir de una lista de números realice las 
 -   Devolver la lista modificada.
 -   Finalmente, después de ejecutar la función, comprueba que la suma de todos los números a partir del segundo, concuerda con el primer número de la lista, tal que así:
 
-`nueva_lista = modificar(lista)
-print( nueva_lista[0] == sum(nueva_lista[1:]) )` 
+`nueva_lista = modificar(lista)`
+
+`print( nueva_lista[0] == sum(nueva_lista[1:]) )` 
 
 `True` 
 
@@ -309,14 +330,17 @@ Crea el siguiente módulo:
 
 Una vez creado el módulo, crea un script  **calculos.py**  en el mismo directorio en el que deberás importar el módulo y realizar las siguientes instrucciones. Observa si el comportamiento es el esperado:
 
-`from operaciones import * 
+`from operaciones import * `
 
-a, b, c, d = (10, 5, 0, "Hola")
+`a, b, c, d = (10, 5, 0, "Hola")`
 
 print( "{} + {} = {}".format(a, b, suma(a, b) ) )
+
 print( "{} - {} = {}".format(b, d, resta(b, d) ) )
+
 print( "{} * {} = {}".format(b, b, producto(b, b) ) ) 
-print( "{} / {} = {}".format(a, c, division(a, c) ) )` 
+
+print( "{} / {} = {}".format(a, c, division(a, c) ) )
 
 ## Ejercicio 2
 

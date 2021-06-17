@@ -82,6 +82,8 @@ try:
         if(pedirDatos == 5):
             for i in range(1, 6, 1):
                 nombre = input(f"Escribe el Nombre {i} del USUARIO: ")
+                if(nombre == "David"):
+                    break
                 usuario.append(nombre)
         if(pedirDatos == 0):
             print("salir")

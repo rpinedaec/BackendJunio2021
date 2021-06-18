@@ -17,3 +17,7 @@ def Ejercicio2(strCadena):
         print(f"Pasword correcto cantidad de caractes: {nroCaracters}")
     else:
         print(f"Longitud del Passwords incorrecta: {nroCaracters}")
+
+# def Ejercicio3(numero_usuario):
+#     numero_magico = 12345679 
+#     numero_usuario = numero_usuario * 9

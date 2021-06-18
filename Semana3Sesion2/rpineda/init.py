@@ -35,16 +35,66 @@
 # lista = ["Karen", "Lam", 20]
 # eje6(lista)
 
-from operadores.operadores import Ejercicio1 as test
-from operadores.operadores import Ejercicio2 as test2
+# from operadores.operadores import Ejercicio1 as test
+# from operadores.operadores import Ejercicio2 as test2
+
+
 
 # num1 = input("Ingresa el primer numero ")
 # num2 = input("Ingresa el segundo numero ")
 
 # test(num1, num2)
 
+# try:
+#     password = input("Ingresa tu password ")
+#     test2(password)
+# except Exception as error:
+#     print("hubo un error y es: ", error)
+
+from colecciones.colecciones import Ejercicio1 as test
+
 try:
-    password = input("Ingresa tu password ")
-    test2(password)
+    usuario = []
+    admins = []
+    control = True
+    while control:
+        pedirDatos = int(input("Si quieres agregar nombres a USUARIO marca 1 "
+                                + "\nSi quieres agregar nombres a ADMINS marca 2 "
+                                
+                                + "\nSi quieres Borrar un USUARIO marca 3"
+                                + "\nSi quieres Borrar un ADMINS marca 4"
+                                + "\nSi quieres agregar 5 nombres a USUARIO marca 5 "
+                                + "\nSi quieres SALIR marca 0  \n"))
+        if(pedirDatos == 1):
+            nombre = input("Escribe el Nombre del USUARIO: ")
+            usuario.append(nombre)
+        if(pedirDatos == 2):
+            nombre = input("Escribe el Nombre del ADMINS: ")
+            admins.append(nombre)
+        if(pedirDatos == 3):
+            print("Esta es la lista de USUARIOS")
+            for nombres in usuario:
+                print(nombres)
+            nombre = input("Escribe el Nombre del USUARIO a Borrar: ")
+            usuario.remove(nombre)
+        if(pedirDatos == 4):
+            nombre = input("Escribe el Nombre del ADMINS a Borrar: ")
+            admins.remove(nombre)
+        if(pedirDatos == 5):
+            for i in range(1, 6, 1):
+                nombre = input(f"Escribe el Nombre {i} del USUARIO: ")
+                if(nombre == "David"):
+                    break
+                usuario.append(nombre)
+        if(pedirDatos == 0):
+            print("salir")
+            control = False
+            #salir
+
+except ValueError as errorValor:
+    print("No puedes borrar un nombre que no este en la lista " + str(errorValor))
+
 except Exception as error:
-    print("hubo un error y es: ", error)
+    print("hubo un error " + error)
+print(usuario)
+print(admins)

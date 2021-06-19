@@ -24,7 +24,7 @@ try:
         else:
             i = (11 - rest) + 1
             verificador1 = numeric[i-1]
-            verificador2 = alfabet[i]
+            verificador2 = alfabet[i-1]
         print(f"\x1b[1;31mPROCESANDO...\033[0;m")
         print(f"DNI válido: {dni}")
         print(f"Verificador numeric: {verificador1}")

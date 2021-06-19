@@ -1,4 +1,4 @@
-# Diplomado en Backen Junio 2021
+# Diplomado en Backend Junio 2021
 Diplimado Programación BackEnd Junio 2021
 ## DESARROLLO BACK-END
 ### Hackaton Semana 3
@@ -16,6 +16,7 @@ ingreso del dato correcto
 - Operadores aritméticos
 - Operadores condicionales
 - Excepciones 
+- https://mag.elcomercio.pe/respuestas/cual-es-el-digito-verificador-de-mi-dni-documento-nacional-de-identidad-reniec-peru-nnda-nnlt-noticia/
 
 ### Se calificará de la siguiente manera
  - Tendrán la calificación menor a 12 las personas no cumplan las espectativas

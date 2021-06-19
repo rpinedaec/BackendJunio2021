@@ -32,24 +32,26 @@ while True:
         nombre = str(input('Ingresa tu Nombre: '))
         dni = int(input('Ingrese tu DNI: '))
         print(' ')
-        opcion = int(input(f'Hola {nombre}, elije la opcion que realizaras:\n 1. Mostrar mi nombre\n 2. Mostrar mi dni\n 3. Calcular mi digito verificado\n 4. Salir\nOpcion: ')) 
-
-        if opcion == 1:
-            print('*****************************************************')
-            mostrarnombre(nombre)
-            break
-        if opcion == 2:
-            print('*****************************************************')
-            mostrardni(dni)
-            break
-        if opcion == 3:
-            print('*****************************************************')
-            calculaverificador(dni)
-            break
-        if opcion == 4:
-            print('*****************************************************')
-            print('Saliendo ...')
-            break 
+        if len(str(dni))<8:
+            print('el DNI tiene que ser de 8 digitos\nIntenta otra vez ...')
+        else:
+            opcion = int(input(f'Hola {nombre}, elije la opcion que realizaras:\n 1. Mostrar mi nombre\n 2. Mostrar mi dni\n 3. Calcular mi digito verificado\n 4. Salir\nOpcion: ')) 
+            if opcion == 1:
+                print('*****************************************************')
+                mostrarnombre(nombre)
+                break
+            if opcion == 2:
+                print('*****************************************************')
+                mostrardni(dni)
+                break
+            if opcion == 3:
+                print('*****************************************************')
+                calculaverificador(dni)
+                break
+            if opcion == 4:
+                print('*****************************************************')
+                print('Saliendo ...')
+                break 
     except ValueError:
         print('*****************************************************')
         print('Para DNI debes ingresar un numero de 8 digitos\ny el Nombre debe estar en texto\nIntenta otra vez ...')

@@ -36,4 +36,4 @@ try:
             f"DNI no válido porque tiene {long} carácteres. Ingrese un dato numérico porfavor.")
 
 except Exception as error:
-    print("Hubo un error: ", error)
+    print("Lo sentimos hubo un error: ", error)

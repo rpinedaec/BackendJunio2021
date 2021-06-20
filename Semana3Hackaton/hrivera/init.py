@@ -1,3 +1,3 @@
-from hackaton.hackaton import prueba as prue
+from prueba.prueba import prueba as prue
 
 prue()

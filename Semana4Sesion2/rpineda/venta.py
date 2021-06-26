@@ -38,8 +38,6 @@ class Vendedor(Persona):
 
 class Producto:
 
-    __Cantidad = 0
-
     def __init__(self, nombre, presentacion, precio):
         self.nombre = nombre
         self.presentacion = presentacion

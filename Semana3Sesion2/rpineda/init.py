@@ -152,7 +152,7 @@ print("Sistema de Alineacion de caracteres")
 linea = []
 palabra = "HolaMundo"
 lstPalabra = list(palabra[::-1])
-for valor in range(0,20,1):
+for valor in range(0,20,<):
     try:
         linea.append(lstPalabra[valor])
     except Exception as error:

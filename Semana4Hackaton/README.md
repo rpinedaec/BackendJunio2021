@@ -36,6 +36,7 @@ Curso de Especialización de Programación BackEnd PachaQtec Junio 2021
 	 - Finally
 	
  - Usar Clases
+ 
 	 - Clase **Persona**
 	 - Clase **Usuario**
 	 - Clase **Asistencia**

@@ -14,76 +14,49 @@ class color:
     UNDERLINE = '\033[4m'
     END = '\033[0m'
 
+
+print("Sistema de recarga de celulares")
+
 class Persona:
-    def __init__(self, nombre, sexo, dni):
+    def __init__(self, nombre, apellido, dni):
         self.nombre = nombre
-        self.sexo = sexo
+        self.apellido = apellido
         self.dni = dni
-
-class Cliente(Persona):
-    def __init__(self, nombre, sexo, dni, codCliente=0):
-        super().__init__(nombre, sexo, dni)
-        if codCliente == 0:
-            self.codCliente = self.codCliente + 1
-        else:
-            self.codCliente = codCliente
-
+    
     def __str__(self) -> str:
-        return self.nombre + " ---- " + str(self.codCliente)
+        return f"{self.nombre} -- {self.apellido}"
+    
+    def __repr__(self) -> str:
+        return f"{self.nombre} -- {self.apellido}"
+    
+    def mostrar(self) -> str:
+        return f"{self.nombre} -- {self.apellido}"
 
-    def comprar(self):
-        print("Comprando")
+class Empresa:
+    def __init__(self, nombreEmpresa, ruc):
+        self.nombreEmpresa = nombreEmpresa
+        self.ruc = ruc
+    def mostrarRUC(self):
+        return self.ruc
 
-        print("Termino de Comprar")
-
+class Vendedor(Persona, Empresa):
+    def __init__(self, nombrePersona, apellidoPersona, nombreEmpresa, dni, ruc):
+        Persona.__init__(self, nombrePersona, apellidoPersona, dni)
+        Empresa.__init__(self, nombreEmpresa, ruc)
+    
+    def VenderRecarga(self):
+        print("Recargando...")
+    
     def toDic(self):
         d = {
-            "nombre": self.nombre,
-            "sexo": self.sexo,
-            "dni": self.dni,
-            "codCliente": self.codCliente
+            "nombre":self.nombre,
+            "apellido":self.apellido,
+            "empresa":self.nombreEmpresa,
+            "dni":self.dni,
+            "ruc":self.ruc
         }
         return d
 
-
-class Vendedor(Persona):
-    def __init__(self, nombre, sexo, dni, codVendedor):
-        super().__init__(nombre, sexo, dni)
-        self.codVendedor = codVendedor
-
-    def vender(self):
-        print("Vendiendo")
-
-        print("Termino de vender")
-
-
-class Producto:
-
-    def __init__(self, nombre, presentacion, precio):
-        self.nombre = nombre
-        self.presentacion = presentacion
-        self.precio = precio
-
-    def comprar(self, cantidad):
-        print("comprando")
-        self.__Cantidad = self.__Cantidad + cantidad
-        print("termino de comprar")
-
-    def vender(self, cantidad):
-        print("comprando")
-        self.__Cantidad = self.__Cantidad - cantidad
-        print("termino de comprar")
-
-
-class Helado(Producto):
-    def __init__(self, nombre, presentacion, precio, sabor, tamaño, tipo):
-        super().__init__(nombre, presentacion, precio) 
-        self.sabor = sabor
-        self.tamaño = tamaño
-        self.tipo = tipo
-
-    def preparar(self, cantidad):
-        print("Se esta preparando el Helado")
 
 class Archivo:
     def __init__(self, nombreArchivo):
@@ -182,59 +155,69 @@ class Menu:
             return os.system('clear')
         clear()
 
-showHome = True
-showCliente = True
 
 
-Home_op = {"Clientes": "1", "Empleados": "2", "Exit": "0"}
-clienteOp = {"Nuevo": "1", "Antiguo": "2", "Exit": "0"}
 
-listaCliente = []
-listaClienteDic = []
-fileCliente = Archivo("cliente.txt")
+
+lstVendedor = []
+lstVendedorDic = []
+
+fileVendedor = Archivo("vendedor.txt")
 
 def cargainicial():
-    res = fileCliente.leerArchivo()
+    res = fileVendedor.leerArchivo()
     print(res)
     listTempCliente = json.loads(res)
     for dic in listTempCliente:
-        newCliente = Cliente(dic["nombre"],dic["sexo"],dic["dni"],dic["codCliente"])
-        listaCliente.append(newCliente)
-        listaClienteDic.append(newCliente.toDic())
+        newCliente = Vendedor(dic["nombre"],dic["apellido"],dic["empresa"],dic["dni"],dic["ruc"])
+        lstVendedor.append(newCliente)
+        lstVendedorDic.append(newCliente.toDic())
 
 cargainicial()
-Main_menu = Menu("home", Home_op)
-respuesta = Main_menu.show()
-
+showHome = True
+opMenuPrincipal ={"Crear Vendedor":"1", "Modificar Vendedor":"2", "Salir": "0"}
+ansMenuPrincipal = "" 
+menuPincipal = Menu("Menu Principal", opMenuPrincipal) 
 while showHome:
-    if(respuesta == "0"):
+    ansMenuPrincipal = menuPincipal.show()
+    if(ansMenuPrincipal == "0"):
         break
-    elif(respuesta == "1"):
-        while showCliente:
-            menuCliente = Menu("Cliente", clienteOp)
-            ansCliente = menuCliente.show()
-            if(ansCliente == "0"):
+    elif(ansMenuPrincipal == "1"):
+        nombre = input("Escribe tu nombre: ")
+        apellido= input("Escribe tu apellido: ")
+        empresa= input("Escribe tu empresa: ")
+        dni = input("Escribe tu dni: ")
+        ruc= input("Escribe tu ruc: ")
+        vendedor = Vendedor(nombre, apellido, empresa, dni, ruc)
+        lstVendedor.append(vendedor)
+        lstVendedorDic.append(vendedor.toDic())
+        jsonString = json.dumps(lstVendedorDic)
+        fileVendedor.borrarArchivo()
+        fileVendedor.escribirArchivo(jsonString)
+
+    elif(ansMenuPrincipal=="2"):
+        for item in lstVendedor:
+            print(f"{item.nombre} -- {item.apellido} -- {item.dni}")
+        dniVendedor = input("Escribe tu DNI: ")
+        vendMod = None
+        encontro = False
+        for item in lstVendedor:
+            if(item.dni == dniVendedor):
+                vendMod = item
+                encontro = True
                 break
-            elif(ansCliente == "1"):
-                nombre = input("Escribe tu nombre: ")
-                sexo = input("Escribe tu sexo [ M - F ]: ")
-                dni = input("Escribe tu DNI: ")
-                cliente = Cliente(nombre, sexo, dni, 3)
-                listaCliente.append(cliente)
-                listaClienteDic.append(cliente.toDic())
-                jsonString = json.dumps(listaClienteDic)
-                fileCliente.borrarArchivo()
-                fileCliente.escribirArchivo(jsonString)
-                print("Cliente Agregado")
-            elif(ansCliente == '2'):
-                for lista in listaCliente:
-                    print(lista)
-                codigoCliente = int(input("Escribe tu DNI: "))
-                clienteEncontado = None
-                for item in listaCliente:
-                    if(item.dni == codigoCliente):
-                        clienteEncontado = item
-                        break
-                if clienteEncontado:
-                    print(clienteEncontado)
-            
+        if(encontro):
+            nombre = input("Escribe tu nombre: ")
+            apellido= input("Escribe tu apellido: ")
+            empresa= input("Escribe tu empresa: ")
+            dni = input("Escribe tu dni: ")
+            ruc= input("Escribe tu ruc: ")
+            vendedor = Vendedor(nombre, apellido, empresa, dni, ruc)
+            lstVendedor.remove(vendMod)
+            lstVendedor.append(vendedor)
+            lstVendedorDic.remove(vendMod.toDic())
+            lstVendedorDic.append(vendedor.toDic())
+            jsonString = json.dumps(lstVendedorDic)
+            fileVendedor.borrarArchivo()
+            fileVendedor.escribirArchivo(jsonString)
+

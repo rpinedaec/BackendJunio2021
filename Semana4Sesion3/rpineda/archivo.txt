@@ -1,0 +1,4 @@
+mi primer archivo desde python
+linea1
+liena 2
+lin3

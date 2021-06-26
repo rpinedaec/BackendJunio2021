@@ -64,7 +64,7 @@ while True:
         break
     else:  
         print("Valor no válido, por favor vuelva a intentar")
-        cod_val = input("Ingrese código validador de su DNI: ")
+        cod_val = input("Ingrese código validador de su DNI:  ")
        
 #COMPARANDO CON LO INGRESADO POR EL USUARIO
 for key in diccionario:

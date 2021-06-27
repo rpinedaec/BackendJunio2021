@@ -68,16 +68,6 @@ def endIDUsuario(lisUsersDic):
     intID = intID + 1
     return intID
 
-def MostrarUsuario(lisUsersDic):
-    os.system('clear')
-    print("REPORTE DE USUARIOS")
-    print("====================")
-    print("")
-    for key in lisUsersDic:
-        print("ID : " + str(key['ID']) + ", Nombres: " + key['Nombre'] + " " + key['Apellido'] + ", DNI: " + key['Dni'])
-    print("")
-    input("Presione una tecla para continuar....")
-
 def BuscarUsuario(lisUsersDic):
     os.system('clear')
     print("BUSQUEDA DE USUARIOS")
@@ -105,7 +95,6 @@ def BorrarUsuario(lisUsersDic):
     print("=================")
     print("")
     idBusca = pedirNumeroEntero("ID Usuario: ")
-    usersMod = None
     bolFind = False
     for item in lisUsersDic:
         if item['ID'] == idBusca:
@@ -122,3 +111,85 @@ def BorrarUsuario(lisUsersDic):
         print("")
         input("ID NO EXISTE, presione una tecla para continuar...")
     return opc
+
+def MostrarUsuario(lisUsersDic):
+    os.system('clear')
+    print("REPORTE DE USUARIOS")
+    print("====================")
+    print("")
+    for key in lisUsersDic:
+        print("ID : " + str(key['ID']) + ", Nombres: " + key['Nombre'] + " " + key['Apellido'] + ", DNI: " + key['Dni'])
+    print("")
+    input("Presione una tecla para continuar....")
+
+def MarcarID(lisUsersDic,strMSG):
+    intID = 0
+    os.system('clear')
+    print(strMSG)
+    print("==============")
+    print("")
+    idBusca = pedirNumeroEntero("Marcar Asistencia del Usuario(ID): ")
+    bolFind = False
+    for item in lisUsersDic:
+        if item['ID'] == idBusca:
+            bolFind = True
+            print("Nombres: " + item['Nombre'] + " " + item['Apellido'])
+            intID = item['ID']
+            break
+    if bolFind == False:
+        print("")
+        input("ID NO EXISTE, presione una tecla para continuar...")
+    return intID
+
+def ListarAsistUsuario(lisUsersDic,lisAsistDic):
+    os.system('clear')
+    print("REPORTE DE ASISTENCIA X USUARIO")
+    print("===============================")
+    idBusca = pedirNumeroEntero("ID Usuario: ")
+    bolFind = False
+    for item in lisUsersDic:
+        if item['ID'] == idBusca:
+            bolFind = True
+            print("Nombres: " + item['Nombre'] + " " + item['Apellido'])
+            print("")
+            print("   DIA    ENTRADA    SALIDA")
+            print("----------------------------")
+            for key in lisAsistDic:
+                if key['ID'] == idBusca:
+                    print(key['Dia'] + "  " + key['Entrada'] + "  " + key['Salida'])
+
+            print("")
+            input("Presione una tecla para continuar....")
+            break
+
+    if bolFind == False:
+        print("")
+        input("ID NO EXISTE, presione una tecla para continuar...")
+
+def ListarAsistFecha(lisUsersDic,lisAsistDic):
+    os.system('clear')
+    print("REPORTE DE ASISTENCIA X DIA")
+    print("===============================")
+    strBusca = input("Fecha (campo vacio-todos): ")
+    strNom = ""
+    print("")
+    print("   DIA    ENTRADA    SALIDA")
+    print("----------------------------")
+    for key in lisAsistDic:
+        if strBusca == "":
+            idBusca = key['ID']
+            for item in lisUsersDic:
+                if item['ID'] == idBusca:
+                    strNom = item['Nombre'] + " " + item['Apellido']
+            print(key['Dia'] + "  " + key['Entrada'] + "  " + key['Salida'] + "  " + strNom)
+
+        if strBusca != "":
+            if key['Dia'] == strBusca:
+                idBusca = key['ID']
+                for item in lisUsersDic:
+                    if item['ID'] == idBusca:
+                        strNom = item['Nombre'] + " " + item['Apellido']
+                print(key['Dia'] + "  " + key['Entrada'] + "  " + key['Salida'] + "  " + strNom)
+    print("")
+    input("Presione una tecla para continuar....")
+

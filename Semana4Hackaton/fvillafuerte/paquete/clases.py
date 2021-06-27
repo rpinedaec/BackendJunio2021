@@ -61,11 +61,20 @@ class Usuario(Persona):
         return d
 
 class Asistencia:
-    def __init__(self, idUsuario, Dia, Entrada,Salida):
-        self.idUsuario = idUsuario
-        self.Dia = Dia
-        self.Entrada = Entrada
-        self.Salida = Salida
+    def __init__(self, idusers, dia, entrada,salida):
+        self.idusers = idusers
+        self.dia = dia
+        self.entrada = entrada
+        self.salida = salida
+
+    def toDic(self):
+        d = {
+            "ID": self.idusers,
+            "Dia": self.dia,
+            "Entrada": self.entrada,
+            "Salida": self.salida
+        }
+        return d
 
 class Archivo:
     def __init__(self, nombreArchivo):

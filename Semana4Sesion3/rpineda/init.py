@@ -200,6 +200,7 @@ def cargainicial():
     for dic in listTempCliente:
         newCliente = Cliente(dic["nombre"],dic["sexo"],dic["dni"],dic["codCliente"])
         listaCliente.append(newCliente)
+        listaClienteDic.append(newCliente.toDic())
 
 cargainicial()
 Main_menu = Menu("home", Home_op)
@@ -236,4 +237,3 @@ while showHome:
                         break
                 if clienteEncontado:
                     print(clienteEncontado)
-            

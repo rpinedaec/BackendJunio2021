@@ -3,6 +3,27 @@ import os
 import time
 import json
 
+os.system("clear")
+
+print("*************************")
+print("*                       *")
+print("*   ¡ Bienvenido(@)!    *")
+print("*                       *")
+print("*************************")
+
+time.sleep(1)
+
+os.system("clear")
+
+print("******************************************")
+print("*                                        *")
+print("*   ¡Sistema  Control  de Asistencia !   *")
+print("*                                        *")
+print("******************************************")
+
+print("")
+print("")
+
 class color:
     PURPLE = '\033[95m'
     CYAN = '\033[96m'
@@ -23,29 +44,46 @@ class Persona:
     def mostrarP(self) -> str:
         return f"{self.nombre} -- {self.apellido} -- {self.dni}"
 
-class Usuario:
-    def __init__(self, nombreUsuario, codUsuario):
-        self.nombreUsuario = nombreUsuario
-        self.codUsuario= codUsuario
-    def mostrarU(self) -> str:
-        return f"{self.nombreUsuario} -- {self.codUsuario}"
-       
-class Asistencia(Persona,Usuario):
-    def __init__(self,nombrePersona, apellidoPersona, dni, nombreUsuario, codUsuario ):
-        Persona.__init__(self, nombrePersona, apellidoPersona, dni)
-        Usuario.__init__(self, nombreUsuario, codUsuario)
+class Usuario(Persona):
+    def __init__(self, nombre, apellido, dni, codUsuario = 0):
+        super().__init__(nombre, apellido, dni)
+        if codUsuario == 0:  
+           self.codUsuario = codUsuario + 1
+        else:
+            self.codUsuario = codUsuario
 
+    def mostrarU(self) -> str:
+      return f"{self.nombre} --*-- {self.apellido} --*-- {self.dni} --*-- {self.codUsuario}"
+       
+#class Asistencia(Persona,Usuario):
+    #def __init__(self,nombrePersona, apellidoPersona, dni, nombreUsuario, codUsuario ):
+    #    Persona.__init__(self, nombrePersona, apellidoPersona, dni)
+    #    Usuario.__init__(self, nombreUsuario, codUsuario)
+
+#Creacion de ARCHIVO
 class Archivo:
     def __init__(self, nombreArchivo):
         self.nombreArchivo = nombreArchivo
-
-    def leerArchivo(self):
+    def mostrarArchivo(self):
         try:
             file = open(self.nombreArchivo,'r')
-            return file.read()
-        except Exception as e:
-            return e
-        
+            for linea in file.readlines():
+                print(linea)
+        except Exception as ex:
+            print(ex)
+        finally:
+            file.close()
+
+    def agregarUsuario(self, usuario):
+        try:
+            file = open(self.nombreArchivo, 'a')
+            textoAgregar ="{},{},{} \n".format(usuario.nombre, usuario.apellido, usuario.dni, usuario.codUsuario)
+            file.write(textoAgregar)
+        except Exception as ex:
+            print(ex)
+        finally:
+            file.close()
+            print(file)
 
     def borrarArchivo(self):
         directorioActual = os.getcwd()
@@ -65,7 +103,7 @@ class Archivo:
             path = directorioActual+"\\"+self.nombreArchivo
             if(os.path.isfile(path)):
                 try:
-                    #escribir el archiv
+                    #escribir el archivo
                     file = open(self.nombreArchivo, 'a')
                     file.write(linea + "\n")
                 except Exception as e:
@@ -91,7 +129,7 @@ class Archivo:
     #         file.close()
     #         print(file)
 
-class Menu:
+"""class Menu:
     def __init__(self, name, op_list, pre_menu=0):
         self.name = name
         self.op_list = op_list
@@ -126,30 +164,114 @@ class Menu:
                 time.sleep(3)
         return ans
 
-    def limpiarPantalla(self):
-        def clear():
-            # return os.system('cls')
-            return os.system('clear')
-        clear()
-showHome = True
-opMenuPrincipal = {"Usuario":"1","Asistencia":"2", "Reporte":"3", "Salir":"0"}
-ansMenuPrincipal = ""
-menuPrincipal = Menu("Menu Principal", opMenuPrincipal)
-#--Sub Menu Usuario --#
-opSubMenuUsuario = {"Agregar Usuario":"1","Buscar Usuario":"2","Quitar Usuario":"3","Listar Usuario":"4","Salir de Sub Menu Usuario":"0"}
-ansSubMenuUsuario =""
-menuUsuaio = Menu( "Sub Menu Usuario", opSubMenuUsuario )
+            def limpiarPantalla(self):
+                def clear():
+                    # return os.system('cls')
+                    return os.system('clear')
+                clear()"""
 
-while showHome:
-    ansMenuPrincipal = menuPrincipal.show()
-    if(ansMenuPrincipal == "0"):
-        break
-    elif(ansMenuPrincipal == "1"):
 
-        print("Sub Menu de Usuario")
+opcion = 0
+def menuPrincipal():
+    opc = int(input("*** - - - Menu Principal - - - *** \n" +
+                    "\n" + 
+                    "1. Usuario \n" +
+                    "2. Asistencia \n" +
+                    "3. Reporte \n" +
+                    "4. Salir \n" +
+                    "\n" + 
+                    "Escoja una Opcion : "))
+    return opc
+
+def menuUsuario():
+    opc = int(input("**---- Sub Menu Usuario ----**\n" +
+                   "\n" + 
+                   "1. Agregar Usuario \n" +
+                   "2. Buscar Usuario \n" +
+                   "3. Quitar Usuario \n" +
+                   "4. Listar Usuario \n" +
+                   "5. Volver a Menu Principal \n" +
+                   "\n" + 
+                   "Escoja una Opcion : "))
+    return opc
+
+def menuAsistencia():
+    opc = int(input("**---- Sub Menu Asistencia ----**\n" +
+                    "\n" + 
+                    "1. Marcar Fecha y Hora de Entrada \n" +
+                    "2. Marcar Fecha y Hora de Salida \n" +
+                    "3. Volver a Menu Princiapal \n" +
+                    "\n" + 
+                    "Escoja una Opcion : "))
+    return opc
+
+def menuReporte():
+    opc = int(input("**---- Sub Menu Reporte ----**\n" +
+                    "\n" +
+                    "1. Reporte por Usuario \n" +
+                    "2. Reporte por Fecha \n" +
+                    "3. Volver a Menu Principal \n" +
+                    "\n" +
+                    "Escoja una Opcion : "))
+    return opc
+
+while opcion != 4:
+    
+    listaUsuario = []
+
+    opcion = menuPrincipal()
+    if(opcion == 1):
+        os.system("clear")
+        opcion = menuUsuario()
+        print("")
+        if(opcion == 1):
+            nombre = input("Escriba su Nombre: ")
+            apellido = input("Escribra su Apellido: ")
+            dni = input("Escriba su D.N.I. : ")
+            usuario = Usuario(nombre, apellido, dni)
+            listaUsuario.append(usuario)
+            print(usuario.mostrarU())
+            print("Usuario Agregado")
+            time.sleep(3)
+            os.system("clear")
         
-    elif(ansMenuPrincipal == "2"):
-        print("Sub Menu Marcado de Asistencia")
-    elif(ansMenuPrincipal == "3"):
-        print("Sub Menu de Reportes")
+        if(opcion == 2):
+            for lista in listaUsuario:
+                print(lista)
+            codigoUsuario = int(input("Escriba su Codigo de Usuario a Buscar: "))
+            usuarioEncontrado = None
+            for item in listaUsuario():
+                if(item.codUsuario == codigoUsuario):
+                   usuarioEncontrado = item
+                   print(lista())
+                   time.sleep(2)   
+                
+        elif(opcion == 4):
+            break
+        if(opcion == 5):   
+           print(menuPrincipal)
+           os.system("clear")
 
+#Sub Menu de Asistencia
+    if opcion == 2:
+        os.system("clear")
+        opcion = menuAsistencia()
+        os.system("clear")
+        if opcion == 3:
+            os.system("clear")
+            print(menuPrincipal)
+            os.system("clear")
+
+#Sub Menu de Reposrte      
+    if opcion == 3:
+        os.system("clear")
+        opcion = menuReporte()
+        os.system("clear")
+        if opcion == 3:
+           #menuPrincipal()
+           os.system("clear")
+
+#Salir de Sistema
+    if opcion == 4:
+        os.system("clear")
+        print("Hasta, pronto...!Gracias..!")

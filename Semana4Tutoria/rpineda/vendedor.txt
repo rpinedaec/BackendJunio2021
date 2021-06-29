@@ -1,0 +1,1 @@
+[{"nombre": "Karen", "apellido": "Lam", "empresa": "holamundo", "dni": "234", "ruc": "567"}, {"nombre": "David", "apellido": "Lopez", "empresa": "X-CODEC", "dni": "9876", "ruc": "788909"}]

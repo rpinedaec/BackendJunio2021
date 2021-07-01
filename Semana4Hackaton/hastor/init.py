@@ -314,22 +314,37 @@ while showMenu:
                     print("")
                     print(f"{usuMod.dni} | {usuMod.nombre} | {usuMod.apellidos} | {usuMod.telefono}")             
                     print("")
-                    entrada = str(now.day)+'/'+str(now.month)+'/'+str(now.year)+' '+str(now.hour)+':'+str(now.minute)+':'+str(now.second)
+                    entrada = str(time.strftime("%d/%m/%y %H:%M:%S"))
+                    fechahoy = str(time.strftime("%d/%m/%y"))
                     salida = ""
-                    print(f"Entrada marcada con exito !! -> {entrada}")
-                    print("")
-                    asistencia = Asistencia(usuMod.nombre,usuMod.apellidos,usuMod.dni,usuMod.telefono,usuMod.codusuario,entrada,salida)
-                    listasistencia.append(asistencia)
-                    listasistenciDic.append(asistencia.toDicAsist())
-                    jsonString = json.dumps(listasistenciDic)
-                    fileAsistencia.borrarArchivo()
-                    fileAsistencia.escribirArchivo(jsonString)
-                    showAsistencia = False
-                    showMenu = False
+                    #buscando en la lista de asistencias si ya existe entrada
+                    flag = 0 
+                    for item in listasistencia:
+                        if(item.dni == dniasistencia and item.entrada[0:8] == fechahoy):
+                            flag = 1
+                            #usuasist = item
+                            #flagentrada = usuasist.entrada  
+                            print("Ya tienes marcada la entrada de hoy")
+                            print(f"Entrada: {item.entrada}")
+                            print("")
+                            showAsistencia = False
+                            showMenu = False
+                    if flag == 0:
+                        print(f"Entrada marcada con exito !! -> {entrada}")
+                        print("")
+                        asistencia = Asistencia(usuMod.nombre,usuMod.apellidos,usuMod.dni,usuMod.telefono,usuMod.codusuario,entrada,salida)
+                        listasistencia.append(asistencia)
+                        listasistenciDic.append(asistencia.toDicAsist())
+                        jsonString = json.dumps(listasistenciDic)
+                        fileAsistencia.borrarArchivo()
+                        fileAsistencia.escribirArchivo(jsonString)
+                        showAsistencia = False
+                        showMenu = False
                 else: 
                     print(f"El DNI: {dniasistencia} no se encuentra registrado !!")
                     showAsistencia = False
                     showMenu = False
+
             elif (ansasistencia == "2"):
                 valor = 0
                 print("::::::: Marcar Salida :::::::")
@@ -346,30 +361,44 @@ while showMenu:
                     print("")
                     print(f"{usuMod.dni} | {usuMod.nombre} | {usuMod.apellidos} | {usuMod.telefono}")             
                     print("")
-                    salida = str(now.day)+'/'+str(now.month)+'/'+str(now.year)+' '+str(now.hour)+':'+str(now.minute)+':'+str(now.second)         
-                    newdni = usuMod.dni
-                    newnombre = usuMod.nombre
-                    newapellidos = usuMod.apellidos
-                    newtelefono = usuMod.telefono 
-                    newcodigo = usuMod.codusuario
-                    newentrada = usuMod.entrada
-                    #print(usuMod.salida)
-                    print(f"Salida marcada con exito !! -> {salida}")
-                    print("")
-                    asistencia = Asistencia(newnombre,newapellidos,newdni,newtelefono,newcodigo,newentrada,salida)
-                    listasistencia.remove(usuMod)
-                    listasistencia.append(asistencia)
-                    listasistenciDic.remove(usuMod.toDicAsist())
-                    listasistenciDic.append(asistencia.toDicAsist())
-                    jsonString = json.dumps(listasistenciDic)
-                    fileAsistencia.borrarArchivo()
-                    fileAsistencia.escribirArchivo(jsonString)
-                    showAsistencia = False
-                    showMenu = False
-                else: 
-                    print(f"El DNI: {dniasistencia} no se encuentra registrado !!")
-                    showAsistencia = False
-                    showMenu = False
+                    salida = str(time.strftime("%d/%m/%y %H:%M:%S"))
+                    fechahoy = str(time.strftime("%d/%m/%y"))
+                    #buscando en la lista de asistencias si ya existe entrada
+                    flag = 0
+                    for item in listasistencia:
+                        if(item.dni == dniasistencia and item.salida[0:8] == fechahoy):
+                            flag = 1
+                            #usuasist = item
+                            #flagentrada = usuasist.entrada  
+                            print("")
+                            print("Ya tienes marcada la salida de hoy !!")
+                            print(f"Salida: {item.salida}")
+                            showAsistencia = False
+                            showMenu = False
+                    if flag == 0:
+                        newdni = usuMod.dni
+                        newnombre = usuMod.nombre
+                        newapellidos = usuMod.apellidos
+                        newtelefono = usuMod.telefono 
+                        newcodigo = usuMod.codusuario
+                        newentrada = usuMod.entrada
+                        #print(usuMod.salida)
+                        print(f"Salida marcada con exito !! -> {salida}")
+                        print("")
+                        asistencia = Asistencia(newnombre,newapellidos,newdni,newtelefono,newcodigo,newentrada,salida)
+                        listasistencia.remove(usuMod)
+                        listasistencia.append(asistencia)
+                        listasistenciDic.remove(usuMod.toDicAsist())
+                        listasistenciDic.append(asistencia.toDicAsist())
+                        jsonString = json.dumps(listasistenciDic)
+                        fileAsistencia.borrarArchivo()
+                        fileAsistencia.escribirArchivo(jsonString)
+                        showAsistencia = False
+                        showMenu = False
+                    else: 
+                        print(f"El DNI: {dniasistencia} no se encuentra registrado !!")
+                        showAsistencia = False
+                        showMenu = False
 
     elif respuesta == "3":
         menureportes = Menu("REPORTES", SubMenu3)
@@ -381,15 +410,23 @@ while showMenu:
             elif(ansreportes == "1"):
                 print("::::::: Reporte por Usuarios :::::::")
                 print("")
-                for item in listasistencia:          
-                    print(f"{item.dni} | {item.nombre} | {item.apellidos}")
-                    print(f"entrada: {item.entrada}")
-                    print(f"salida: {item.salida}")      
-                    print("")           
-                    showReportes = False
-                    showMenu = False
+                dniusu = str(input("Ingrese el dni a buscar: "))
+                for item in listasistencia:  
+                    if(item.dni == dniusu):
+                        print("")
+                        print(f"{item.dni} -- {item.nombre} -- {item.apellidos}")
+                        print(f"entrada: {item.entrada}  salida: {item.salida}")
+                        showReportes = False
+                        showMenu = False
             elif(ansreportes == "2"):
-                print("Reporte en construccion ... vuelva pronto =D")
+                print("::::::: Reporte por Fecha :::::::")
                 print("")
-                showReportes = False
-                showMenu = False
+                fechahoy = str(time.strftime("%d/%m/%y"))
+                fechareporte = str(input("Ingrese la fecha buscada [dd/mm/yy]: "))
+                for item in listasistencia:
+                    if(item.entrada[0:8] == fechareporte):
+                        print("")
+                        print(f"{item.dni} -- {item.nombre} -- {item.apellidos}")
+                        print(f"entrada: {item.entrada}  salida: {item.salida}")
+                        showReportes = False
+                        showMenu = False

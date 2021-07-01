@@ -64,7 +64,6 @@ try:
     while control:
         pedirDatos = int(input("Si quieres agregar nombres a USUARIO marca 1 "
                                 + "\nSi quieres agregar nombres a ADMINS marca 2 "
-                                
                                 + "\nSi quieres Borrar un USUARIO marca 3"
                                 + "\nSi quieres Borrar un ADMINS marca 4"
                                 + "\nSi quieres agregar 5 nombres a USUARIO marca 5 "
@@ -102,4 +101,25 @@ except Exception as error:
     print("hubo un error " + error)
 print(usuario)
 print(admins)
+
+def listToString(s):
+    str1 = "" 
+    return (str1.join(s))
+        
+        
+# print(tareas)
+print("Sistema de Alineacion de caracteres")
+# ***********HolaMundo
+linea = []
+palabra = "HolaMundo"
+lstPalabra = list(palabra[::-1])
+for valor in range(0,20,<):
+    try:
+        linea.append(lstPalabra[valor])
+    except Exception as error:
+        linea.append("*")
+print(linea)
+
+print(listToString(linea)[::-1])
+
 

@@ -18,5 +18,4 @@ foo = long_function_name(var_one, var_two, var_three, var_four)
 
 
 print(foo)
-
 my_list = [1, 2, 3, 4, 5, 6]

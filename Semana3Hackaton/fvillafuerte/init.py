@@ -23,4 +23,4 @@ while bolSW:
     elif intOpc == 0:
         bolSW = False
     else:
-        print("Introduce un número entre 0-3")
+        print("Introduce un número entre 0-4")

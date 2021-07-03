@@ -1,1 +1,1 @@
-[{"nombre": "Karen", "sexo": "F", "dni": "343434", "codCliente": 3}, {"nombre": "Roberto", "sexo": "M", "dni": "8585858", "codCliente": 3}]
+[{"nombre": "carlos", "sexo": "m", "dni": "09852305", "codCliente": 3}]

@@ -72,7 +72,7 @@ while True:
     if opMenu == 9:
         break
     elif opMenu == 1:
-        opCliente = int(input("eres cliente nuevo presiona 1 o si eres cliente antogui digit tu codigo  o 9 si quieres salir: "))
+        opCliente = int(input("eres cliente nuevo presiona 1 o si eres cliente antiguo digita tu codigo  o 9 si quieres salir: "))
         if opCliente == 9:
             break
         elif opCliente == 1:

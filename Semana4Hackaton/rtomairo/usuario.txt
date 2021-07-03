@@ -1,0 +1,1 @@
+[{"nombre": "Roger", "apellido": "Tomairo Paniagua", "sexo": "M", "dni": "76009902", "codUsuario": "7"}, {"nombre": "Cristina", "apellido": "valencia contreras", "sexo": "f", "dni": "12345678", "codUsuario": "1"}, {"nombre": "Raul", "apellido": "contreras taipe", "sexo": "m", "dni": "12345676", "codUsuario": "5"}]

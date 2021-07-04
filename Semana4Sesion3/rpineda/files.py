@@ -32,7 +32,7 @@ finally:
     file.close()
 
 try:
-    file = open("MiPrimeraCarpeta/archivo1.txt", 'a')
+    file = open("/archivo1.txt", 'a')
     file.write("\n")
     for item in range(0, 10, 1):
         file.write("Estoy escribiendo desde python " + str(item))

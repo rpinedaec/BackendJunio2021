@@ -1,0 +1,20 @@
+{
+    "nombre": "Roberto",
+    "edad": 37,
+    "raza": "mestizo",
+    "sexo": "masculino",
+    "hobbies": [
+        "aeromodelismo",
+        "musica"
+    ],
+    "hijos": [
+        {
+            "nombre": "Karen",
+            "edad": 5
+        },
+        {
+            "nombre": "David",
+            "edad": 8
+        }
+    ]
+}

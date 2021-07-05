@@ -116,3 +116,4 @@ values(19,1,1,1);
 --Para sacar el promedio de las notas 
 
 select avg(puntaje) from notas;
+

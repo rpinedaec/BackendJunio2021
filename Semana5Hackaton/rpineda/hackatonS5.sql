@@ -1,13 +1,24 @@
 -- DDL 
 create database colegio;
 
+create table tipodocumento(
+    id serial,
+    nombre varchar(45) not null,
+    primary key(id)
+);
+
 create table alumno(
     id serial,
     nombres varchar(255) not null,
+    idtipodocumento int not null,
     identificador  varchar(80) not null,
     edad int,
     correo varchar(45) not null,
-    primary key(id)
+    primary key(id),
+    CONSTRAINT fk_alumno_tipodocumento
+        FOREIGN KEY(idtipodocumento) 
+            REFERENCES tipodocumento(id)
+
 );
 
 -- DML

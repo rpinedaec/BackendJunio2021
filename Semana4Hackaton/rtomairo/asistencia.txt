@@ -1,0 +1,1 @@
+[{"dia": "29/06/2021", "hora-entrada": "18:07:42", "hora-salida": "18:07:42", "codigo": "7"}, {"dia": "29/06/2021", "hora-entrada": "18:09:30", "hora-salida": "18:09:30", "codigo": "5"}]

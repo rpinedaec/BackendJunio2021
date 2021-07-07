@@ -23,6 +23,7 @@
 #         conn.close()
 
 from conexion import conexion
+from tabulate import tabulate
 import os
 import time
 
@@ -89,7 +90,7 @@ class Menu:
         clear()
 
 conn = conexion()
-opMenuPrincipal ={"Crear Profesor":"1", "Listar Profesor":"2", "Salir": "0"}
+opMenuPrincipal ={"Crear Profesor":"1", "Listar Profesor":"2", "Actualizar Profesor": "3", "Salir": "0"}
 showHome = True
 ansMenuPrincipal = "" 
 menuPincipal = Menu("Menu Principal", opMenuPrincipal) 
@@ -112,8 +113,37 @@ while showHome:
     elif(ansMenuPrincipal == "2"):
         query = """Select * from profesores"""
         result = conn.consultarBDD(query)
-        print(result)
+        header = ['ID', 'Codigo', 'Nombre', 'Paterno', 'Materno', 'Edad', 'Telefono', 'Direccion', 'Email','Profesion']
+       # print(result)
+        print(tabulate(result, headers=header,showindex=True, tablefmt='fancy_grid'))
         input("presiona cualquier tecla para continuar")
+    elif(ansMenuPrincipal == "3"):
+        query = """Select * from profesores"""
+        result = conn.consultarBDD(query)
+        print(color.RED +"|Id\t\t|Codigo\t|Nombre"+ color.END)
+        for item in result:
+            print(f"|{item[0]}\t|{item[1]}\t|{item[2]}\t|{item[3]}\t|{item[4]}\t|{item[5]}\t|")
+        id = input("escoje un ID para modificar: ")
+        codigo = input("Escribe el Codigo del Profe: ")
+        nombre = input("Escribe tu nombre: ")
+        apellidoPaterno= input("Escribe tu apellido Paterno: ")
+        apellidoMaterno= input("Escribe tu apellido Materno: ")
+        edad= input("Escribe tu edad: ")
+        email = input("Escribe tu email: ")
+        query = f"""update profesores
+                    set codigo_profesor = '{codigo}',
+                    nombres = '{nombre}',
+                    apellido_paterno = '{apellidoPaterno}',
+                    apellido_materno = '{apellidoMaterno}',
+                    edad = {edad},
+                    email = '{email}'
+                    where id_profesor = {id};"""
+        result = conn.ejecutarBDD(query)
+        if(result):
+            print("Se ejecuto correctamente")
+        input("presiona una tecla para continuar...")
+
+
 
 
 

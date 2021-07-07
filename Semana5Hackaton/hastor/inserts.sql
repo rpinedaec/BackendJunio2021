@@ -107,3 +107,16 @@ values(2,4,20,18,17,16);
 
 insert into notas (id_alumno,id_curso,bimestre1_nota,bimestre2_nota,bimestre3_nota,bimestre4_nota)
 values(2,5,11,10,11,11);
+
+
+insert into profesores (codigo_profesor,nombres,apellido_paterno,apellido_materno,edad,email) 
+values ('P0005','Ricardo','Mata','Matias',37,'rmata@colegio.com');
+
+update profesores
+set codigo_profesor = '',
+nombres = '',
+apellido_paterno = '',
+apellido_materno = '',
+edad = 22,
+email = ''
+where id_profesor = 22

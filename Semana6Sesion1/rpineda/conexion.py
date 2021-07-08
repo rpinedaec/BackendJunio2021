@@ -5,10 +5,10 @@ class conexion:
     def conexion(self):
         try:
             conn = psycopg2.connect(user='postgres',
-                                    password="pachaqtec2021",
+                                    password="S0p0rt320",
                                     host="localhost",
                                     port="5432",
-                                    database="colegio")
+                                    database="colegio1")
             return conn
         except Error as error:
             print(f"Ha ocurrido en error: {str(error)}")

@@ -1,4 +1,4 @@
-# from psycopg2 import connect, Error
+#import psycopg2 
 
 # try:
 #     conn = connect(user='postgres',
@@ -39,14 +39,25 @@ class color:
     UNDERLINE = '\033[4m'
     END = '\033[0m'
 
-class Profesor:
-    def __init__(self,codigo_profesor,nombres,apellido_paterno,apellido_materno,edad,email):
-        self.codigo_profesor = codigo_profesor
+#class Profesor:
+#    def __init__(self,codigo_profesor,nombres,apellido_paterno,apellido_materno,edad,email):
+#        self.codigo_profesor = codigo_profesor
+#        self.nombres = nombres
+#        self.apellido_paterno = apellido_paterno
+#        self.apellido_materno = apellido_materno
+#        self.edad = edad
+#        self.email = email
+#----------------------------------------------------------------------------------------------
+
+class Alumno:
+    def __init__(self, codigo_alumno, nombres, apellido_paterno,apellido_materno ,edad, correo,direccion):
+        self.codigo_alumno = codigo_alumno
         self.nombres = nombres
         self.apellido_paterno = apellido_paterno
         self.apellido_materno = apellido_materno
         self.edad = edad
-        self.email = email
+        self.correo = correo
+        self.direccion = direccion
 
 class Menu:
     def __init__(self, name, op_list, pre_menu=0):
@@ -90,7 +101,7 @@ class Menu:
         clear()
 
 conn = conexion()
-opMenuPrincipal ={"Crear Profesor":"1", "Listar Profesor":"2", "Actualizar Profesor": "3", "Salir": "0"}
+opMenuPrincipal ={"Crear Alumno":"1", "Listar Alumno":"2", "Actualizar Alumno":"3", "Salir": "0"}
 showHome = True
 ansMenuPrincipal = "" 
 menuPincipal = Menu("Menu Principal", opMenuPrincipal) 
@@ -99,63 +110,109 @@ while showHome:
     if(ansMenuPrincipal == "0"):
         break
     elif(ansMenuPrincipal == "1"):
-        codigo = input("Escribe el Codigo del Profe: ")
+        codigo = input("Escribe el Codigo del Alumno: ")
         nombre = input("Escribe tu nombre: ")
         apellidoPaterno= input("Escribe tu apellido Paterno: ")
         apellidoMaterno= input("Escribe tu apellido Materno: ")
         edad= input("Escribe tu edad: ")
         email = input("Escribe tu email: ")
-        query = f"""insert into profesores (codigo_profesor,nombres,apellido_paterno,apellido_materno,edad,email) 
-                values ('{codigo}','{nombre}','{apellidoPaterno}','{apellidoMaterno}',{edad},'{email}');"""
+        direccion = input("Escribe tu Direccion: ")
+        query = f"""insert into alumnos (id_alumno,codigo_alumno,nombres,apellido_paterno,apellido_materno,edad,correo,direccion) 
+                values ('{codigo}','{nombre}','{apellidoPaterno}','{apellidoMaterno}',{edad},'{email}','{direccion}');"""
         result = conn.ejecutarBDD(query)
         if(result):
             print("Se ejecuto correctamente")
     elif(ansMenuPrincipal == "2"):
-        query = """Select * from profesores"""
+        query = """Select * from alumnos"""
         result = conn.consultarBDD(query)
-        header = ['ID', 'Codigo', 'Nombre', 'Paterno', 'Materno', 'Edad', 'Telefono', 'Direccion', 'Email','Profesion']
+        header = ['ID', 'Codigo', 'Nombre', 'Ape - Paterno', 'Ape - Materno', 'Edad', 'Telefono', 'Direccion', 'Email','Profesion']
        # print(result)
         print(tabulate(result, headers=header,showindex=True, tablefmt='fancy_grid'))
         input("presiona cualquier tecla para continuar")
     elif(ansMenuPrincipal == "3"):
-        query = """Select * from profesores"""
+        query = """Select * from alumnos"""
         result = conn.consultarBDD(query)
         print(color.RED +"|Id\t\t|Codigo\t|Nombre"+ color.END)
         for item in result:
             print(f"|{item[0]}\t|{item[1]}\t|{item[2]}\t|{item[3]}\t|{item[4]}\t|{item[5]}\t|")
         id = input("escoje un ID para modificar: ")
-        codigo = input("Escribe el Codigo del Profe: ")
+        codigo = input("Escribe el Codigo del ID Alumno: ")
         nombre = input("Escribe tu nombre: ")
         apellidoPaterno= input("Escribe tu apellido Paterno: ")
         apellidoMaterno= input("Escribe tu apellido Materno: ")
         edad= input("Escribe tu edad: ")
         email = input("Escribe tu email: ")
-        query = f"""update profesores
-                    set codigo_profesor = '{codigo}',
+        direccion = input("Escribe tu Direccion: ")
+        query = f"""update alumnos
+                    set codigo_alumno = '{codigo}',
                     nombres = '{nombre}',
                     apellido_paterno = '{apellidoPaterno}',
                     apellido_materno = '{apellidoMaterno}',
                     edad = {edad},
                     email = '{email}'
+                    direccion ='{direccion}'
                     where id_profesor = {id};"""
         result = conn.ejecutarBDD(query)
         if(result):
             print("Se ejecuto correctamente")
         input("presiona una tecla para continuar...")
 
+#----------------------------------------------------------------------------#
 
 
-
-
-
-
-
-
-
-
-
-
-
+#opMenuPrincipal ={"Crear Profesor":"1", "Listar Profesor":"2", "Actualizar Profesor": "3", "Salir": "0"}
+#showHome = True
+#ansMenuPrincipal = "" 
+#menuPincipal = Menu("Menu Principal", opMenuPrincipal) 
+#while showHome:
+#    ansMenuPrincipal = menuPincipal.show()
+#    if(ansMenuPrincipal == "0"):
+#        break
+#    elif(ansMenuPrincipal == "1"):
+#        codigo = input("Escribe el Codigo del Profe: ")
+#        nombre = input("Escribe tu nombre: ")
+#        apellidoPaterno= input("Escribe tu apellido Paterno: ")
+#        apellidoMaterno= input("Escribe tu apellido Materno: ")
+#        edad= input("Escribe tu edad: ")
+#        email = input("Escribe tu email: ")
+#        query = f"""insert into profesores (codigo_profesor,nombres,apellido_paterno,apellido_materno,edad,email) 
+#                values ('{codigo}','{nombre}','{apellidoPaterno}','{apellidoMaterno}',{edad},'{email}');"""
+#        result = conn.ejecutarBDD(query)
+#        if(result):
+#            print("Se ejecuto correctamente")
+#    elif(ansMenuPrincipal == "2"):
+#        query = """Select * from profesores"""
+#        result = conn.consultarBDD(query)
+#        header = ['ID', 'Codigo', 'Nombre', 'Paterno', 'Materno', 'Edad', 'Telefono', 'Direccion', 'Email','Profesion']
+#       # print(result)
+#        print(tabulate(result, headers=header,showindex=True, tablefmt='fancy_grid'))
+#        input("presiona cualquier tecla para continuar")
+#    elif(ansMenuPrincipal == "3"):
+#        query = """Select * from profesores"""
+#        result = conn.consultarBDD(query)
+#        print(color.RED +"|Id\t\t|Codigo\t|Nombre"+ color.END)
+#        for item in result:
+#            print(f"|{item[0]}\t|{item[1]}\t|{item[2]}\t|{item[3]}\t|{item[4]}\t|{item[5]}\t|")
+#        id = input("escoje un ID para modificar: ")
+#        codigo = input("Escribe el Codigo del Profe: ")
+#        nombre = input("Escribe tu nombre: ")
+#        apellidoPaterno= input("Escribe tu apellido Paterno: ")
+#        apellidoMaterno= input("Escribe tu apellido Materno: ")
+#        edad= input("Escribe tu edad: ")
+#        email = input("Escribe tu email: ")
+#        email = input("Escribe tu email: ")
+#        query = f"""update profesores
+#       #            set codigo_profesor = '{codigo}',
+       #            nombres = '{nombre}',
+       #            apellido_paterno = '{apellidoPaterno}',
+       #            apellido_materno = '{apellidoMaterno}',
+       #            edad = {edad},
+       #            email = '{email}'
+       #            where id_profesor = {id};"""
+       # result = conn.ejecutarBDD(query)
+       # if(result):
+       #     print("Se ejecuto correctamente")
+       # input("presiona una tecla para continuar...")
 
 # query = """insert into profesores (codigo_profesor,nombres,apellido_paterno,apellido_materno,edad,email) 
 # values ('P0003','Paul','Vega','Espinoza',35,'pvega@colegio.com');"""

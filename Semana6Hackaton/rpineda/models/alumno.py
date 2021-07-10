@@ -1,4 +1,3 @@
-from Semana6Tutoria.rpineda.models.persona import Persona
 import persona
 
 class Alumno(Persona):

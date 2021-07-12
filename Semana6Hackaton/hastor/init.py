@@ -159,27 +159,29 @@ def menuAlumnos():
             print(tabulate(result, headers=header, tablefmt='fancy_grid'))
             input("presiona cualquier tecla para continuar")
         elif(ansMenu == "3"):
-            query = """Select * from profesores"""
+            query = """Select * from alumnos"""
             result = conn.consultarBDD(query)
             print(color.RED + "|Id\t\t|Codigo\t|Nombre" + color.END)
             for item in result:
                 print(
                     f"|{item[0]}\t|{item[1]}\t|{item[2]}\t|{item[3]}\t|{item[4]}\t|{item[5]}\t|")
             id = input("escoje un ID para modificar: ")
-            codigo = input("Escribe el Codigo del Profe: ")
+            codigo = input("Escribe el Codigo del Alumno: ")
             nombre = input("Escribe tu nombre: ")
             apellidoPaterno = input("Escribe tu apellido Paterno: ")
             apellidoMaterno = input("Escribe tu apellido Materno: ")
             edad = input("Escribe tu edad: ")
             email = input("Escribe tu email: ")
-            query = f"""update profesores
+            direccion = input("Escribe tu direccion: ")
+            query = f"""update alumnos
                         set codigo_profesor = '{codigo}',
                         nombres = '{nombre}',
                         apellido_paterno = '{apellidoPaterno}',
                         apellido_materno = '{apellidoMaterno}',
                         edad = {edad},
                         email = '{email}'
-                        where id_profesor = {id};"""
+                        direccion = '{direccion}'
+                        where id_alumno = {id};"""
             result = conn.ejecutarBDD(query)
             if(result):
                 print("Se ejecuto correctamente")

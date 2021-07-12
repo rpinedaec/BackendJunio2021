@@ -11,20 +11,6 @@ CREATE TABLE profesor(
     CONSTRAINT pk_profesor PRIMARY KEY(idprofesor)
 );
 
-CREATE TABLE horarioprofesor(
-    idhorario SERIAL,
-    horainicio TIME NOT NULL,
-    horafin TIME NOT NULL,
-    dia DATE NOT NULL,
-    CONSTRAINT pk_horarioprofesor PRIMARY KEY(idhorario)
-);
-
-CREATE TABLE profesor_has_horarioprofesor(
-    idprofesor_profesor INT,
-    idhorario_horarioprofesor INT,
-    CONSTRAINT fk_profesor FOREIGN KEY(idprofesor_profesor) REFERENCES profesor(idprofesor),
-    CONSTRAINT fk_horarioprofesor FOREIGN KEY(idhorario_horarioprofesor) REFERENCES horarioprofesor(idhorario)
-);
 CREATE TABLE alumno(
     idalumno SERIAL,
     nombre VARCHAR(45) NOT NULL,

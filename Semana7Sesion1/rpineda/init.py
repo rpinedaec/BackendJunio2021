@@ -12,7 +12,7 @@ class Mobile():
         self.modelo = modelo
         self.precio = precio
     def toDic(self):
-        return {'modelo': self.modelo, 'precio':self.precio}
+        return self.__dict__
     def __str__(self) -> str:
         return {'modelo': self.modelo, 'precio':self.precio}
 

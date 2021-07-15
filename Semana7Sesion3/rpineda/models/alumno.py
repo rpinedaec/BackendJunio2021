@@ -24,8 +24,8 @@ class Alumno:
                 'promedio':promedio
             }
             alumnos.append(insert)
-        if alumnos:
-            
+        if alumnos:      
             conn = conexionBDD(4)
-            for item in alumnos:
-                conn.insertarRegistro("notas", item)
+            conn.insertarRegistros("notas",alumnos)
+            # for item in alumnos:
+            #     conn.insertarRegistro("notas", item)

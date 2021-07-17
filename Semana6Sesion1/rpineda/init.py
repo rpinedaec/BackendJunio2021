@@ -1,4 +1,4 @@
-# from psycopg2 import connect, Error
+#import psycopg2 
 
 # try:
 #     conn = connect(user='postgres',
@@ -34,7 +34,7 @@ lstAlumnos = []
 
 
 def cargaInicial():
-    query = """Select * from profesores;"""
+    query = """Select * from profesor;"""
     result = conn.consultarBDD(query)
     for item in result:
         newProfesor = Profesor(

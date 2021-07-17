@@ -8,7 +8,7 @@ class conexion:
                                     password="S0p0rt320",
                                     host="localhost",
                                     port="5432",
-                                    database="colegio")
+                                    database="hackaton6")
             return conn
         except Error as error:
             print(f"Ha ocurrido en error: {str(error)}")

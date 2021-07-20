@@ -332,9 +332,9 @@ try:
     opMenuPrincipal = {"Menu Profesores": "1", "Menu Alumnos": "2","Menu Cursos": "3","Menu Salon":"4","Salir": "0"}
     showHome = True
     ansMenuPrincipal = ""
-    menuPincipal = Menu("Principal", opMenuPrincipal)
+    menuPrincipal = Menu("Principal", opMenuPrincipal)
     while showHome:
-        ansMenuPrincipal = menuPincipal.show()
+        ansMenuPrincipal = menuPrincipal.show()
         if(ansMenuPrincipal == "0"):
             break
         elif(ansMenuPrincipal == "1"):

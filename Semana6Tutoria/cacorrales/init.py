@@ -49,6 +49,7 @@ def menuProfesores():
         ansMenu = menuProfesores.show()
         if(ansMenu == "0"):
             break
+        
         #--- Crear ---#
         if(ansMenu == "1"):
             nombre = input("Escribe tu nombre: ")

@@ -1,5 +1,5 @@
 from time import time
-
+from pymongo import MongoClient
 from pymongo.results import InsertManyResult
 from utils.utils import log
 from utils.utils import Menu, color
@@ -34,15 +34,51 @@ def menuAlumnos():
            edad = input("Escribe tu edad: ")
            correo = input("Escribe tu email: ")
            result = Alumno(id,nombre,dni,edad,correo)
-           result.append(insert)
+           result.append()
            if result:      
                 conn = conexionBDD(4)
                 conn.insertarRegistro(Alumno,result())
                 print("Error")
                 input("presiona cualquier tecla para continuar...")
-        
         except Exception as err:
             log.error(err)
+            
+  #--- Listar Alumno---#
+        elif(ansMenu == "2"):
+        query = """Select * from alumno"""
+        result = conn.consultarBDD(query)
+        header = ['ID','Nombre Apellido', 'dni','Edad', 'Correo Electronico']
+        print(tabulate(result, headers=header, tablefmt='fancy_grid'))
+        print("")
+        input("presiona cualquier tecla para continuar")
+        
+  #--- Actualizar Alumno---#
+        elif(ansMenu == "3"):
+        query = """Select * from alumno"""
+        result = conn.consultarBDD(query)
+        header = ['ID','Nombre','DNI','Edad','Correo Electronico']
+        print(tabulate(result,headers=header,tablefmt='fancy_grid'))
+        id = input("escoje un ID para modificar: ")
+        nombre = input("Escribe tu nombre: ")
+        dni = input("Escribe tu DNI: ")
+        edad = input("Escribe tu edad: ")
+        correo = input("Escribe tu email: ")
+        query = f"""update alumno set nombre = '{nombre}',dni = '{dni}',edad = {edad},correo = '{correo}'
+                     where id = {id};"""
+        result = conn.ejecutarBDD(query)
+        if(result):
+            print("Se modifico correctamente")
+            print("")
+            input("presiona una tecla para continuar...")
+
+  #--- Buscar Alumno---#
+        elif(ansMenu == "4"):
+            codigo = int(input("Ingresa el ID a buscar: "))
+            for item in lstAlumnos:
+                if(item.id == codigo):
+                    print(item)
+                    input("presiona cualquier tecla para continuar...")
+
 
 
 

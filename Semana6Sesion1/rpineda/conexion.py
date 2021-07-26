@@ -5,7 +5,7 @@ class conexion:
     def conexion(self):
         try:
             conn = psycopg2.connect(user='postgres',
-                                    password="pachaqtec2021",
+                                    password="S0p0rt320",
                                     host="localhost",
                                     port="5432",
                                     database="colegio")

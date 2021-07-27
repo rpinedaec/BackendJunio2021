@@ -6,7 +6,7 @@ Por: **Franklin VH** [franklin_vh@hotmail.com](franklin_vh@hotmail.com)
 
 En un nivel más alto, GitHub es un sitio web y un servicio en la nube que ayuda a los desarrolladores a almacenar y administrar su código, al igual que llevar un registro y control de cualquier cambio sobre este código. Para entender exactamente qué es GitHub, primero usted necesita conocer los dos principios que lo conectan:
 
-* Control de Versión22
+* Control de Versión22ddd
 * GIT
 
 

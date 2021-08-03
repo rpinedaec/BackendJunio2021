@@ -90,21 +90,17 @@ class conexionBDD:
             self.__log.error(error)
             return False
 
-    #def insertarRegistro(Alumno):
-    #    db = conexion()
-    #    resultado = db.cacorrales.insert_one(Alumno.toC)
-
-    def insertarRegistro(self, collection, data):
+    def insertarRegistro(self, collection, data):#recibe dict
         try:
             conexion = self.conexion()
             doc = conexion[str(f"{collection}")]
-            res = doc.insert_one(data).inserted_id
+            res = doc.insert_one(data)
             return res
         except Exception as error:
             self.__log.error(error)
             return False
 
-    def insertarRegistros(self, collection, data):
+    def insertarRegistros(self, collection, data):#lista de dict
         try:
             conexion = self.conexion()
             doc = conexion[str(f"{collection}")]

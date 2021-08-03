@@ -129,6 +129,15 @@ class conexionBDD:
         except Exception as error:
             self.__log.error(error)
             return False
+    def leerRegistros2(self, collection):
+        try:
+            conexion = self.conexion()
+            doc = conexion[str(f"{collection}")]
+            res = doc.find({})
+            return res
+        except Exception as error:
+            self.__log.error(error)
+            return False
 
     def actualizarRegistro(self, collection, condicion, cambio):
         try:
@@ -140,6 +149,15 @@ class conexionBDD:
             self.__log.error(error)
             return False
 
+    def actualizarRegistro2(self, collection, condicion, cambio):
+        try:
+            conexion = self.conexion()
+            doc = conexion[str(f"{collection}")]
+            doc.update_one({"id":condicion}, {'$set': cambio})
+            return True
+        except Exception as error:
+            self.__log.error(error)
+            return False
     def eliminarRegistro(self, collection, eliminar):
         try:
             conexion = self.conexion()

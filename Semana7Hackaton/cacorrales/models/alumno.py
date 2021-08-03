@@ -1,9 +1,6 @@
 from conn.conexion import conexionBDD
 from conn import conexion
 from utils.utils import log
-from bson.objectid import ObjectId
-import json
-#from models.persona import Persona
 import sys
 sys.path.insert(0, '..')
 
@@ -14,11 +11,7 @@ class Alumno:
         self.dni = dni
         self.edad = edad
         self.correo = correo
-
-    @staticmethod
-    def insertarAlumno(self):
-        alumno = []
-        insert = {
+        self.alumno = {
             "id": self.id,
             "nombre": self.nombre,
             "dni": self.dni,
@@ -26,5 +19,16 @@ class Alumno:
             "correo": self.correo
         }
 
+    @staticmethod
+    def insertarAlumno(self):
         conn = conexionBDD(4)
-        conn.insertarRegistro("alumno",insert)
+        conn.insertarRegistro("alumno",self.alumuno)
+     
+    def leerAlumno(self):   
+        con = conexionBDD(4)
+        con.insertarRegistro("alumno",'{}')
+    
+    def actualizarAlumno(self):
+        con = conexionBDD(4)
+        res = con.actualizarRegistro2("alumno",self.id,self.alumno)
+        return(res)

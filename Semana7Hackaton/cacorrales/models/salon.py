@@ -24,11 +24,11 @@ class Salon():
         conn = conexionBDD(4)
         conn.insertarRegistro("salon",'{}')
     
-    def leerCurso(self):
+    def leerSalon(self):
         conn = conexionBDD(4)
         conn.insertarRegistro("salon",'{}')
     
-    def actualizarCurso(self):
+    def actualizarSalon(self):
         con = conexionBDD(4)
         res = con.actualizarRegistro2("salon",self.id,self.salon)
         return(res)

@@ -226,7 +226,7 @@ def menuSalon():
             idprofesor_profesor = input("Escribe Id Profesor: ")
             idalumno_alumno = input("Escribe Id Alumno: ")
             objSalon = Salon(idsalon,nombre,anoescolar,codsalon,idprofesor_profesor,idalumno_alumno)
-            resul = Salon.actualizarProfesor(objSalon)  
+            resul = Salon.actualizarSalon(objSalon)  
             if(resul):
                 print("Se modifico correctamente")
                 print("")

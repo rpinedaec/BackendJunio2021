@@ -1,0 +1,12 @@
+{% extends "base_template.html" %}
+
+{% block title %}Minimarket II{% endblock %}
+
+{% block content %}
+    <ul>
+    {% for producto in productos %}
+        <!-- <li><a href="{{ url_for('public.show_post', slug=post.title_slug) }}">{{ producto.nombre }}</a></li> -->
+        <li>{{ producto.nombre }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

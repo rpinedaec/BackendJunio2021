@@ -1,11 +1,3 @@
-"""
-
-AUTOR: Juanjo
-
-FECHA DE CREACIÓN: 13/01/2020
-
-"""
-
 from functools import wraps
 from flask import abort
 from flask_login import current_user

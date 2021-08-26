@@ -1,9 +1,40 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
 {% if latest_question_list %}
     <ul>
-    {% for question in latest_question_list %}
-    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
+    
     </ul>
+    <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Pregunta</th>
+              <th>Votos</th>
+              <th style="width: 40px">Respuestas</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for question in latest_question_list %}
+            <tr>
+                <td>{{question.id}}</td>
+                <td><a href="{% url 'polls:detail' question.id %}" accesskey="r" data-toggle="tooltip" data-placement="top" title="presiona ALT + R">{{ question.question_text }}</a></td>
+                <td>
+                  <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                  </div>
+                </td>
+                <td><span class="badge bg-danger">55%</span></td>
+              </tr>
+    <!-- <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> -->
+    {% endfor %}
+            
+           
+          </tbody>
+        </table>
+      </div>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+{% endblock %}

@@ -13,51 +13,53 @@ class Registros:
 
     __log = log("Registros")
 
-    def registroLibros(self):
-        self.__log.info("Ingresando al Registro de Libros")
-
-        opcionesRegistroLibros = {"\t- Registrar Libros":1,"\t- Listar Libros":2,"\t- Modificar Libros":3}
-        menuRegistroLibros = Menu("Registro de Libros",opcionesRegistroLibros)
-        resmenuRegistroLibros = menuRegistroLibros.mostrarMenu()
-        stopMenu = True
-        while stopMenu:
-            if resmenuRegistroLibros == 1:
-               self.__log.info("Entrando al registro de libros")
-               nuevoLibro = Libro()
-               nombreLibro = input("escriba el nombre del Libro \n")
-               descripcion = input("escriba la descricion del Libro \n")
+def menuLibro():
+    opMenu = {"Registrar Libro": "1", "Listar Libro": "2", "Actualizar Libro": "3", "Buscar Libro": "4", "Salir": "0"}
+    showMenu = True
+    ansMenu = ""
+    menu = Menu("LIBRO", opMenu)
+    while showMenu:
+        ansMenu = menu.show()
+        if(ansMenu == "0"):
+            break
+   def registroLibros(self):
+#---------- Registra Libro -----------#
+        if(ansMenu=="1"):
+          self.__log.info("Ingresando al Registro de Libros")
+          self.__log.info("Entrando al registro de libros")
+          nuevoLibro = Libro()
+          nombreLibro = input("escriba el nombre del Libro \n")
+          descripcion = input("escriba la descricion del Libro \n")
                
-               autores = Autor()
-               print(f"\t Codigo\t Nombre\t Tipo")
-               for obj in autores.all():
-                   print(f"\t {obj.id}\t {obj.nombre}\t {obj.descripcion}")
-               print("Escriba el id del Autor de la siguiente lista")
-               autor_idLibro = input()
+            #autores = Autor()
+            #print(f"\t Codigo\t Nombre\t Tipo")
+            #for obj in autores.all():
+            #   print(f"\t {obj.id}\t {obj.nombre}\t {obj.descripcion}")
+            #   print("Escriba el id del Autor de la siguiente lista")
+            #   autor_idLibro = input()
 
-               estados = EstadoLibro()
-               print(f"\t Codigo\t Estado")
-               for obj in estados.all():
-                    print(f"\t {obj.id}\t {obj.descripcion}")
-               print("Escriba el id del Estado del Libro de la siguiente lista")
-               estadoLibro = input()
-               nuevoLibro.nombre = nombreLibro
-               nuevoLibro.descripcion = descripcion
-               nuevoLibro.autor_id = autor_idLibro
-               nuevoLibro.estado_libro_id = estadoLibro
-               nuevoLibro.save()
-               stopMenu = False
+            #   estados = EstadoLibro()
+            #   print(f"\t Codigo\t Estado")
+            #   for obj in estados.all():
+            #        print(f"\t {obj.id}\t {obj.descripcion}")
+            #   print("Escriba el id del Estado del Libro de la siguiente lista")
+            #   estadoLibro = input()
+            #   nuevoLibro.nombre = nombreLibro
+            #   nuevoLibro.descripcion = descripcion
+            #   nuevoLibro.autor_id = autor_idLibro
+            #   nuevoLibro.estado_libro_id = estadoLibro
+            #   nuevoLibro.save()
+            #   stopMenu = False
 
-            if resmenuRegistroLibros == 2:
-               self.__log.info("Generando Listado")
-               listaLibro = Libro()
-               header = ['ID', 'NOMBRE', 'DESCRIPCION','AUTOR_ID','ESTADO_LIBRO_ID']
-               print(tabulate(listaLibro, headers=header, tablefmt='fancy_grid'))
-               #for obj in listaLibro.all():
+        if(ansMenu=="2"):
+        
+            listaLibro = Libro()
+            header = ['ID', 'NOMBRE', 'DESCRIPCION','AUTOR_ID','ESTADO_LIBRO_ID']
+            print(tabulate(listaLibro, headers=header, tablefmt='fancy_grid'))
+              #for obj in listaLibro.all():
                #     print(f"\t {obj.id}\t {obj.nombre}\t {obj.descripcion}\t {obj.autor_id}\t {obj.estado_libro_id}")
                #     print("")
-               input("presiona cualquier tecla para continuar")
-            elif resmenuRegistroLibros == 9:
-               self._log.info("Saliendo")
+            input("presiona cualquier tecla para continuar")
 
     def registroLectores(self):
         self.__log.info("Ingresando al Registro de Lector")

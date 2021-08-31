@@ -1,11 +1,3 @@
-"""
-
-AUTOR: Juanjo
-
-FECHA DE CREACIÓN: 08/07/2019
-
-"""
-
 from os.path import abspath, dirname
 
 

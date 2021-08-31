@@ -1,11 +1,3 @@
-"""
-
-AUTOR: Juanjo
-
-FECHA DE CREACIÓN: 24/05/2019
-
-"""
-
 import logging
 
 from flask import render_template, redirect, url_for, abort

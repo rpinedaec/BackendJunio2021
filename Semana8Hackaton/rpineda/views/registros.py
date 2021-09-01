@@ -37,13 +37,8 @@ class Registros:
                 nuevoLibro.descripcion = descripcion
                 nuevoLibro.autor_id = autor_idLibro
                 nuevoLibro.estado_libro_id = estadoLibro
-
                 nuevoLibro.save()
-
-
-
                 stopMenu = False
-            
             elif resmenuRegistroLibros == 9:
                 self._log.info("Saliendo")
 

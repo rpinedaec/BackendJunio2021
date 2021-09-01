@@ -27,5 +27,5 @@ class Alumno:
         if alumnos:      
             conn = conexionBDD(4)
             conn.insertarRegistros("notas",alumnos)
-            # for item in alumnos:
-            #     conn.insertarRegistro("notas", item)
+            for item in alumnos:
+                 conn.insertarRegistro("notas", item)

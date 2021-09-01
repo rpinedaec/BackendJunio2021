@@ -1,0 +1,11 @@
+<h2>hola</h2>
+
+{%if clientes%}
+<ul>
+{% for cliente in clientes %}
+    <li>{{ cliente.nombres}}  {{ cliente.apellidos}}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No hay clientes</p>
+{% endif %}

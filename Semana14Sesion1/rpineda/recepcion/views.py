@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, ListView, CreateView, UpdateView,
 from .models import Cliente
 from .forms import ClienteForm
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 class home(TemplateView):
@@ -19,6 +21,7 @@ class ListarClientes(ListView):
     template_name = 'recepcion/index.html'
     queryset = Cliente.objects.all()
     context_object_name = 'clientes'
+
 
 class CrearCliente(CreateView):
     model = Cliente
@@ -48,3 +51,4 @@ class BorrarCliente(DeleteView):
 
     # def delete(self):
     #     pass
+

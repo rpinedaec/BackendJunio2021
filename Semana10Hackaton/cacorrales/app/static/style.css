@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    line-height: 1.5
+    text-align: center;
+    background-color: #d9f2ea;
+}
+
+.main-head{
+	background: #1a0146;
+	color: white;
+}
+
+form{
+	margin: 5vh auto;
+	width: 320px;
+	color: steelblue;
+
+}
+
+.login-form input{
+	display: block;
+	margin-top: 25px;
+	width: 100%;
+	border: 2px solid #131c27;
+	border-radius: 5px;
+}
+.login-form input[type="submit"]{
+
+	border: none;
+	background-color: #131c27;
+	color: white;
+	font-size: 1.8rem;
+}
+
+nav{
+	min-height: 10vh;
+	display: flex;
+	width: 80%;
+	margin: auto;
+	padding: 2rem;
+	align-items: center;
+}
+
+h2{
+	font-size: 3rem;
+	text-align: center;
+	margin-top: 5vh;
+}
+
+form{
+	margin: 5vh auto;
+	width: 320px;
+	color: steelblue;
+
+}
+
+#logo{
+	flex: 3 1 50rem;
+}
+
+a{
+	text-decoration: none;
+	color: rgb(175, 22, 22);
+}
+
+h1, h2, h3, h4 {
+    margin: 1em 0 .5em;
+    line-height: 1.25
+}
+
+h1 {
+    font-size: 2em
+}
+
+h2 {
+    font-size: 1.5em
+}
+
+h3 {
+    font-size: 1.2em
+}
+
+ul, ol {
+    margin: 1em 0;
+    padding-left: 40px
+}
+
+p, figure {
+    margin: 1em 0
+}
+
+a img {
+    border: none
+}
+
+sup, sub {
+    line-height: 0
+}
+
+.user-info {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.user-info li {
+    display: inline-block;
+    margin: 0;
+    padding: 0 10px 0 0;
+}

@@ -56,7 +56,7 @@ class Menu:
         opSalir = True
         while(opSalir):
             self.limpiarPantalla()
-            print(color.BLUE+":::::::::::::BIENVENIDOS EMPRESA ESMR::::::::::::::"+color.CEND)
+            print(color.BLUE+":::::::::::::BIENVENIDOS::::::::::::::"+color.CEND)
             print(color.BLUE+":::::::::::::::::::" +self.nombreMenu + "::::::::::::::::::"+color.CEND)
             
             for (key, value) in self.listaOpciones.items():

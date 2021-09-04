@@ -29,7 +29,7 @@ class Menu:
                   self.name.upper()+"::::::::::::::::::::"+color.END)
             print("")
             for (key, value) in self.op_list.items():
-                print(key + color.GREEN + " → " + color.END + value)
+                print(key + color.GREEN + " :=→ " + color.END + value)
             print("")
             ans = input(
                 color.YELLOW + "Por favor, ingrese su opción: " + color.END)

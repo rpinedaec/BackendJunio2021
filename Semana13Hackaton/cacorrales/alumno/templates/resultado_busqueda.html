@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <p>Estas buscando: <strong>{{query}}</strong></p>
+        {% if estado %}
+
+            <p>Alumno encontrado: {{estado|length}} estado</p>
+            <ul>
+                {% for estados in estado %}
+                <li>
+                    {{estado.nombre}}
+
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encuentra</p>
+        {% endif %}
+    </body>
+</html>

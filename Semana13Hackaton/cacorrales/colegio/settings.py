@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'profesor.apps.ProfesorConfig',
 ]
 
+LOGIN_REDIRECT_URL = '/inicio'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -4,6 +4,7 @@ from .serializers import AuthorSerializer, TagSerializer, PostSerializer
 from .models import Author,Tag,Post
 from rest_framework import viewsets
 from rest_framework import filters
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class AuthorViewSet(viewsets.ModelViewSet):
@@ -13,6 +14,7 @@ class TagViewSet(viewsets.ModelViewSet):
     serializer_class = TagSerializer
     queryset = Tag.objects.all()
 class PostViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
     queryset = Post.objects.all()
     # def get_queryset(self):

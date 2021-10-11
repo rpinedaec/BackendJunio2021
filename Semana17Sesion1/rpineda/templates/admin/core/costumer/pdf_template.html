@@ -1,0 +1,12 @@
+{% extends "admin/pdf_template.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Test Template</h1>
+
+{% for paragraph in paragraphs %}
+    <p>{{ paragraph }}</p>
+  {% endfor %}
+
+{{ block.super }}
+{% endblock% %}
